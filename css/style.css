@@ -98,14 +98,6 @@ html p a:hover {
 	text-decoration: none;
 }
 
-/*
-*
-* Contexts
-*/
-/*
-*
-* Typography
-*/
 body {
 	font-family: "Montserrat", sans-serif, Arial, sans-serif;
 	font-size: 14px;
@@ -24758,3 +24750,73 @@ img.mfp-img {
 .wavy-line-green:before { text-decoration-color: #56AE5F; }
 .wavy-line-blue:before { text-decoration-color: #1FB5D1; }
 .wavy-line-yellow:before { text-decoration-color: #F9B930; }
+
+/* Preloader */
+
+#loader-wrapper {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1000;
+	background-color: white;
+}
+
+#loader {
+	display: block;
+	position: relative;
+	left: 50%;
+	top: 50%;
+	width: 150px;
+	height: 150px;
+	margin: -75px 0 0 -75px;
+	border-radius: 50%;
+	border: 3px solid transparent;
+	border-top-color: #3498db;
+	-webkit-animation: spin 2s linear infinite;
+	animation: spin 2s linear infinite;
+	z-index: 1001;
+}
+
+@keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+
+/* Section */
+
+#loader-wrapper .loader-section {
+	position: fixed;
+	top: 0;
+	width: 51%;
+	height: 100%;
+	background: #222222;
+	z-index: 1000;
+}
+
+#loader-wrapper .loader-section.section-left {
+	left: 0;
+}
+
+#loader-wrapper .loader-section.section-right {
+	right: 0;
+}
+
+/* Loaded */
+
+.loaded #loader {
+	opacity: 0;
+}
+
+.loaded #loader-wrapper {
+	visibility: hidden;
+}
+
+.loaded #loader-wrapper .loader-section.section-left {
+	transform: translateX(-100%);
+}
+
+.loaded #loader-wrapper .loader-section.section-right {
+	transform: translateX(100%);
+}
