@@ -10,11 +10,6 @@ button:focus {
 	100%{background-position: 0 50%;}
 }
 
-@font-face {
-	font-family: "Montserrat";
-	src: url(/fonts/Montserrat.ttf);
-}
-
 button::-moz-focus-inner {
 	border: 0;
 }
@@ -100,7 +95,7 @@ html p a:hover {
 
 body {
 	font-family: "Montserrat", sans-serif, Arial, sans-serif;
-	font-size: 14px;
+	font-size: 16px;
 	line-height: 1.71429;
 	font-weight: 400;
 	letter-spacing: normal;
