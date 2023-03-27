@@ -5936,7 +5936,7 @@ textarea.textarea-lg {
 	line-height: 1;
 	font-weight: 500;
 	letter-spacing: .075em;
-	font-family: "Montserrat", sans-serif, Arial, sans-serif;
+	font-family: "Montserrat";
 	color: #151515;
 }
 
@@ -10826,7 +10826,7 @@ h2.title-modern > span {
 }
 
 .team-modern-status {
-	color: #01b3a7;
+	color: #f5543f;
 	letter-spacing: .025em;
 	line-height: 1.71429;
 	font-weight: 500;
