@@ -1411,14 +1411,4 @@ function disableRightClick(e) {
         return false;
     }
 }
-function enableRightClick() {
-    if (document.all) {
-        document.detachEvent('onmousedown', disableRightClick);
-        document.detachEvent('onmouseup', enableRightClick);
-    } else {
-        document.removeEventListener('mousedown', disableRightClick, false);
-        document.removeEventListener('mouseup', enableRightClick, false);
-    }
-    document.rightClickDisabled = false;
-}
-document.oncontextmenu = disableRightClick;
+
