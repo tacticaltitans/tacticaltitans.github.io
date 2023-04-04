@@ -1,0 +1,4 @@
+RewriteEngine on
+RewriteCond %{REQUEST_URI} !/mantenimiento.html$
+RewriteCond %{REMOTE_ADDR} !^92.177.60.250
+RewriteRule $ /paginaDeMantenimiento.html [R=302,L]

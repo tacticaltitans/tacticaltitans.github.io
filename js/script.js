@@ -606,3 +606,23 @@
 		}
 	});
 }());
+
+
+
+
+
+let slideIndex = 0;
+const sliderItems = document.querySelectorAll('.slider-item');
+
+function showSlides() {
+  slideIndex++;
+  if (slideIndex >= sliderItems.length) {
+    slideIndex = 0;
+  }
+  sliderItems.forEach(item => {
+    item.classList.remove('active');
+  });
+  sliderItems[slideIndex].classList.add('active');
+}
+
+setInterval(showSlides, 3000);
