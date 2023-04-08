@@ -2,44 +2,44 @@
 (function () {
 	// Global variables
 	var userAgent = navigator.userAgent.toLowerCase(),
-			initialDate = new Date(),
+		initialDate = new Date(),
 
-			$document = $(document),
-			$window = $(window),
-			$html = $("html"),
-			$body = $("body"),
+		$document = $(document),
+		$window = $(window),
+		$html = $("html"),
+		$body = $("body"),
 
-			isDesktop = $html.hasClass("desktop"),
-			isIE = userAgent.indexOf("msie") !== -1 ? parseInt(userAgent.split("msie")[1], 10) : userAgent.indexOf("trident") !== -1 ? 11 : userAgent.indexOf("edge") !== -1 ? 12 : false,
-			isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent),
-			windowReady = false,
-			isNoviBuilder = false,
-			loaderTimeoutId,
+		isDesktop = $html.hasClass("desktop"),
+		isIE = userAgent.indexOf("msie") !== -1 ? parseInt(userAgent.split("msie")[1], 10) : userAgent.indexOf("trident") !== -1 ? 11 : userAgent.indexOf("edge") !== -1 ? 12 : false,
+		isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent),
+		windowReady = false,
+		isNoviBuilder = false,
+		loaderTimeoutId,
 
-			plugins = {
-				bootstrapTooltip:        $("[data-toggle='tooltip']"),
-				bootstrapTabs:           $(".tabs-custom"),
-				rdNavbar:                $(".rd-navbar"),
-				materialParallax:        $(".parallax-container"),
-				maps:                    $(".google-map-container"),
-				rdMailForm:              $(".rd-mailform"),
-				rdInputLabel:            $(".form-label"),
-				regula:                  $("[data-constraints]"),
-				wow:                     $(".wow"),
-				owl:                     $(".owl-carousel"),
-				swiper:                  $(".swiper-slider"),
-				counter:                 $(".counter"),
-				progressLinear:          $(".progress-linear"),
-				circleProgress:          $(".progress-bar-circle"),
-				preloader:               $(".preloader"),
-				captcha:                 $('.recaptcha'),
-				lightGallery:            $("[data-lightgallery='group']"),
-				lightGalleryItem:        $("[data-lightgallery='item']"),
-				lightDynamicGalleryItem: $("[data-lightgallery='dynamic']"),
-				mailchimp:               $('.mailchimp-mailform'),
-				campaignMonitor:         $('.campaign-mailform'),
-				copyrightYear:           $(".copyright-year")
-			};
+		plugins = {
+			bootstrapTooltip: $("[data-toggle='tooltip']"),
+			bootstrapTabs: $(".tabs-custom"),
+			rdNavbar: $(".rd-navbar"),
+			materialParallax: $(".parallax-container"),
+			maps: $(".google-map-container"),
+			rdMailForm: $(".rd-mailform"),
+			rdInputLabel: $(".form-label"),
+			regula: $("[data-constraints]"),
+			wow: $(".wow"),
+			owl: $(".owl-carousel"),
+			swiper: $(".swiper-slider"),
+			counter: $(".counter"),
+			progressLinear: $(".progress-linear"),
+			circleProgress: $(".progress-bar-circle"),
+			preloader: $(".preloader"),
+			captcha: $('.recaptcha'),
+			lightGallery: $("[data-lightgallery='group']"),
+			lightGalleryItem: $("[data-lightgallery='item']"),
+			lightDynamicGalleryItem: $("[data-lightgallery='dynamic']"),
+			mailchimp: $('.mailchimp-mailform'),
+			campaignMonitor: $('.campaign-mailform'),
+			copyrightYear: $(".copyright-year")
+		};
 
 	/**
 	 * @desc Check the element was been scrolled into the view
@@ -57,24 +57,26 @@
 		if (plugins.progressLinear.length) {
 			for (var i = 0; i < plugins.progressLinear.length; i++) {
 				var
-						bar = $(plugins.progressLinear[i]),
-						initProgress = function () {
-							var
-									bar = $(this),
-									end = parseInt($(this).find('.progress-value').text(), 10);
+					bar = $(plugins.progressLinear[i]),
+					initProgress = function () {
+						var
+							bar = $(this),
+							end = parseInt($(this).find('.progress-value').text(), 10);
 
-							// console.log( !bar.hasClass("animated-first"), isScrolledIntoView(bar), bar[0].offsetParent );
-							if (!bar.hasClass("animated-first") && isScrolledIntoView(bar)) {
-								bar.find('.progress-bar-linear').css({width: end + '%'});
-								bar.find('.progress-value').countTo({
-									refreshInterval: 40,
-									from:            0,
-									to:              end,
-									speed:           1000
-								});
-								bar.addClass('animated-first');
-							}
-						};
+						// console.log( !bar.hasClass("animated-first"), isScrolledIntoView(bar), bar[0].offsetParent );
+						if (!bar.hasClass("animated-first") && isScrolledIntoView(bar)) {
+							bar.find('.progress-bar-linear').css({
+								width: end + '%'
+							});
+							bar.find('.progress-value').countTo({
+								refreshInterval: 40,
+								from: 0,
+								to: end,
+								speed: 1000
+							});
+							bar.addClass('animated-first');
+						}
+					};
 
 				$.proxy(initProgress, bar)();
 				$window.on("scroll", $.proxy(initProgress, bar));
@@ -89,13 +91,13 @@
 		// Page loader & Page transition
 		if (plugins.preloader.length && !isNoviBuilder) {
 			pageTransition({
-				target:            document.querySelector('.page'),
-				delay:             100,
-				duration:          500,
-				classIn:           'fadeIn',
-				classOut:          'fadeOut',
-				classActive:       'animated',
-				conditions:        function (event, link) {
+				target: document.querySelector('.page'),
+				delay: 100,
+				duration: 500,
+				classIn: 'fadeIn',
+				classOut: 'fadeOut',
+				classActive: 'animated',
+				conditions: function (event, link) {
 					return !/(\#|callto:|tel:|mailto:|:\/\/)/.test(link) && !event.currentTarget.hasAttribute('data-lightgallery');
 				},
 				onTransitionStart: function (options) {
@@ -103,7 +105,7 @@
 						plugins.preloader.removeClass('loaded');
 					}, options.duration * .75);
 				},
-				onReady:           function () {
+				onReady: function () {
 					plugins.preloader.addClass('loaded');
 					windowReady = true;
 				}
@@ -118,7 +120,7 @@
 		 */
 		function getSwiperHeight(object, attr) {
 			var val = object.attr("data-" + attr),
-					dim;
+				dim;
 
 			if (!val) {
 				return undefined;
@@ -148,9 +150,9 @@
 		 */
 		function toggleSwiperInnerVideos(swiper) {
 			var prevSlide = $(swiper.slides[swiper.previousIndex]),
-					nextSlide = $(swiper.slides[swiper.activeIndex]),
-					videos,
-					videoItems = prevSlide.find("video");
+				nextSlide = $(swiper.slides[swiper.activeIndex]),
+				videos,
+				videoItems = prevSlide.find("video");
 
 			for (var i = 0; i < videoItems.length; i++) {
 				videoItems[i].pause();
@@ -168,27 +170,27 @@
 		 */
 		function toggleSwiperCaptionAnimation(swiper) {
 			var prevSlide = $(swiper.container).find("[data-caption-animate]"),
-					nextSlide = $(swiper.slides[swiper.activeIndex]).find("[data-caption-animate]"),
-					delay,
-					duration,
-					nextSlideItem,
-					prevSlideItem;
+				nextSlide = $(swiper.slides[swiper.activeIndex]).find("[data-caption-animate]"),
+				delay,
+				duration,
+				nextSlideItem,
+				prevSlideItem;
 
 			for (var i = 0; i < prevSlide.length; i++) {
 				prevSlideItem = $(prevSlide[i]);
 
 				prevSlideItem.removeClass("animated")
-				.removeClass(prevSlideItem.attr("data-caption-animate"))
-				.addClass("not-animated");
+					.removeClass(prevSlideItem.attr("data-caption-animate"))
+					.addClass("not-animated");
 			}
 
 
 			var tempFunction = function (nextSlideItem, duration) {
 				return function () {
 					nextSlideItem
-					.removeClass("not-animated")
-					.addClass(nextSlideItem.attr("data-caption-animate"))
-					.addClass("animated");
+						.removeClass("not-animated")
+						.addClass(nextSlideItem.attr("data-caption-animate"))
+						.addClass("animated");
 					if (duration) {
 						nextSlideItem.css('animation-duration', duration + 'ms');
 					}
@@ -218,8 +220,8 @@
 		 */
 		function initOwlCarousel(c) {
 			var aliaces = ["-", "-sm-", "-md-", "-lg-", "-xl-", "-xxl-"],
-					values = [0, 576, 768, 992, 1200, 1600],
-					responsive = {};
+				values = [0, 576, 768, 992, 1200, 1600],
+				responsive = {};
 
 			for (var j = 0; j < values.length; j++) {
 				responsive[values[j]] = {};
@@ -240,8 +242,8 @@
 			if (c.attr('data-dots-custom')) {
 				c.on("initialized.owl.carousel", function (event) {
 					var carousel = $(event.currentTarget),
-							customPag = $(carousel.attr("data-dots-custom")),
-							active = 0;
+						customPag = $(carousel.attr("data-dots-custom")),
+						active = 0;
 
 					if (carousel.attr('data-active')) {
 						active = parseInt(carousel.attr('data-active'), 10);
@@ -267,27 +269,27 @@
 			});
 
 			c.owlCarousel({
-				autoplay:      isNoviBuilder ? false : c.attr("data-autoplay") === "true",
-				loop:          isNoviBuilder ? false : c.attr("data-loop") !== "false",
-				items:         1,
-				center:        c.attr("data-center") === "true",
+				autoplay: isNoviBuilder ? false : c.attr("data-autoplay") === "true",
+				loop: isNoviBuilder ? false : c.attr("data-loop") !== "false",
+				items: 1,
+				center: c.attr("data-center") === "true",
 				dotsContainer: c.attr("data-pagination-class") || false,
-				navContainer:  c.attr("data-navigation-class") || false,
-				mouseDrag:     isNoviBuilder ? false : c.attr("data-mouse-drag") !== "false",
-				nav:           c.attr("data-nav") === "true",
-				dots:          c.attr("data-dots") === "true",
-				dotsEach:      c.attr("data-dots-each") ? parseInt(c.attr("data-dots-each"), 10) : false,
-				animateIn:     c.attr('data-animation-in') ? c.attr('data-animation-in') : false,
-				animateOut:    c.attr('data-animation-out') ? c.attr('data-animation-out') : false,
-				responsive:    responsive,
-				navText:       function () {
+				navContainer: c.attr("data-navigation-class") || false,
+				mouseDrag: isNoviBuilder ? false : c.attr("data-mouse-drag") !== "false",
+				nav: c.attr("data-nav") === "true",
+				dots: c.attr("data-dots") === "true",
+				dotsEach: c.attr("data-dots-each") ? parseInt(c.attr("data-dots-each"), 10) : false,
+				animateIn: c.attr('data-animation-in') ? c.attr('data-animation-in') : false,
+				animateOut: c.attr('data-animation-out') ? c.attr('data-animation-out') : false,
+				responsive: responsive,
+				navText: function () {
 					try {
 						return JSON.parse(c.attr("data-nav-text"));
 					} catch (e) {
 						return [];
 					}
 				}(),
-				navClass:      function () {
+				navClass: function () {
 					try {
 						return JSON.parse(c.attr("data-nav-class"));
 					} catch (e) {
@@ -321,25 +323,25 @@
 
 			if (captchaToken.length === 0) {
 				captcha
-				.siblings('.form-validation')
-				.html('Please, prove that you are not robot.')
-				.addClass('active');
+					.siblings('.form-validation')
+					.html('Please, prove that you are not robot.')
+					.addClass('active');
 				captcha
-				.closest('.form-wrap')
-				.addClass('has-error');
+					.closest('.form-wrap')
+					.addClass('has-error');
 
 				captcha.on('propertychange', function () {
 					var $this = $(this),
-							captchaToken = $this.find('.g-recaptcha-response').val();
+						captchaToken = $this.find('.g-recaptcha-response').val();
 
 					if (captchaToken.length > 0) {
 						$this
-						.closest('.form-wrap')
-						.removeClass('has-error');
+							.closest('.form-wrap')
+							.removeClass('has-error');
 						$this
-						.siblings('.form-validation')
-						.removeClass('active')
-						.html('');
+							.siblings('.form-validation')
+							.removeClass('active')
+							.html('');
 						$this.off('propertychange');
 					}
 				});
@@ -392,7 +394,7 @@
 		// UI To Top
 		if (isDesktop && !isNoviBuilder) {
 			$().UItoTop({
-				easingType:     'easeOutQuad',
+				easingType: 'easeOutQuad',
 				containerClass: 'ui-to-top fa fa-angle-up'
 			});
 		}
@@ -446,10 +448,10 @@
 
 
 			plugins.rdNavbar.RDNavbar({
-				anchorNav:    !isNoviBuilder,
+				anchorNav: !isNoviBuilder,
 				stickUpClone: (plugins.rdNavbar.attr("data-stick-up-clone") && !isNoviBuilder) ? plugins.rdNavbar.attr("data-stick-up-clone") === 'true' : false,
-				responsive:   responsiveNavbar,
-				callbacks:    {
+				responsive: responsiveNavbar,
+				callbacks: {
 					onDropdownOver: function () {
 						return !isNoviBuilder;
 					},
@@ -467,42 +469,42 @@
 			for (var i = 0; i < plugins.swiper.length; i++) {
 				var s = $(plugins.swiper[i]);
 				var pag = s.find(".swiper-pagination"),
-						next = s.find(".swiper-button-next"),
-						prev = s.find(".swiper-button-prev"),
-						bar = s.find(".swiper-scrollbar"),
-						swiperSlide = s.find(".swiper-slide"),
-						autoplay = false;
+					next = s.find(".swiper-button-next"),
+					prev = s.find(".swiper-button-prev"),
+					bar = s.find(".swiper-scrollbar"),
+					swiperSlide = s.find(".swiper-slide"),
+					autoplay = false;
 
 				for (var j = 0; j < swiperSlide.length; j++) {
 					var $this = $(swiperSlide[j]),
-							url;
+						url;
 
 					if (url = $this.attr("data-slide-bg")) {
 						$this.css({
 							"background-image": "url(" + url + ")",
-							"background-size":  "cover"
+							"background-size": "cover"
 						})
 					}
 				}
 
 				swiperSlide.end()
-				.find("[data-caption-animate]")
-				.addClass("not-animated")
-				.end();
+					.find("[data-caption-animate]")
+					.addClass("not-animated")
+					.end();
 
 				s.swiper({
-					autoplay:                 s.attr('data-autoplay') ? s.attr('data-autoplay') === "false" ? undefined : s.attr('data-autoplay') : 5000,
-					direction:                s.attr('data-direction') && isDesktop ? s.attr('data-direction') : "horizontal",
-					effect:                   s.attr('data-slide-effect') ? s.attr('data-slide-effect') : "slide",
-					speed:                    s.attr('data-slide-speed') ? s.attr('data-slide-speed') : 600,
-					keyboardControl:          s.attr('data-keyboard') === "true",
-					mousewheelControl:        s.attr('data-mousewheel') === "true",
+					autoplay: s.attr('data-autoplay') ? s.attr('data-autoplay') === "false" ? undefined : s.attr('data-autoplay') : 5000,
+					direction: s.attr('data-direction') && isDesktop ? s.attr('data-direction') : "horizontal",
+					effect: s.attr('data-slide-effect') ? s.attr('data-slide-effect') : "slide",
+					speed: s.attr('data-slide-speed') ? s.attr('data-slide-speed') : 600,
+					keyboardControl: s.attr('data-keyboard') === "true",
+					mousewheelControl: s.attr('data-mousewheel') === "true",
 					mousewheelReleaseOnEdges: s.attr('data-mousewheel-release') === "true",
-					nextButton:               next.length ? next.get(0) : null,
-					prevButton:               prev.length ? prev.get(0) : null,
-					pagination:               pag.length ? pag.get(0) : null,
-					paginationClickable:      pag.length ? pag.attr("data-clickable") !== "false" : false,
-					paginationBulletRender:   function (swiper, index, className) {
+					nextButton: next.length ? next.get(0) : null,
+					prevButton: prev.length ? prev.get(0) : null,
+					pagination: pag.length ? pag.get(0) : null,
+					paginationClickable: pag.length ? pag.attr("data-clickable") !== "false" : false,
+					paginationBulletRender: function (swiper, index, className) {
 						if (pag.attr("data-index-bullet") === "true") {
 							return '<span class="' + className + '">' + (index + 1) + '</span>';
 						} else if (pag.attr("data-bullet-custom") === "true") {
@@ -511,18 +513,18 @@
 							return '<span class="' + className + '"></span>';
 						}
 					},
-					scrollbar:                bar.length ? bar.get(0) : null,
-					scrollbarDraggable:       bar.length ? bar.attr("data-draggable") !== "false" : true,
-					scrollbarHide:            bar.length ? bar.attr("data-draggable") === "false" : false,
-					loop:                     isNoviBuilder ? false : s.attr('data-loop') !== "false",
-					simulateTouch:            s.attr('data-simulate-touch') && !isNoviBuilder ? s.attr('data-simulate-touch') === "true" : false,
-					onTransitionStart:        function (swiper) {
+					scrollbar: bar.length ? bar.get(0) : null,
+					scrollbarDraggable: bar.length ? bar.attr("data-draggable") !== "false" : true,
+					scrollbarHide: bar.length ? bar.attr("data-draggable") === "false" : false,
+					loop: isNoviBuilder ? false : s.attr('data-loop') !== "false",
+					simulateTouch: s.attr('data-simulate-touch') && !isNoviBuilder ? s.attr('data-simulate-touch') === "true" : false,
+					onTransitionStart: function (swiper) {
 						toggleSwiperInnerVideos(swiper);
 					},
-					onTransitionEnd:          function (swiper) {
+					onTransitionEnd: function (swiper) {
 						toggleSwiperCaptionAnimation(swiper);
 					},
-					onInit:                   (function (s) {
+					onInit: (function (s) {
 						return function (swiper) {
 							toggleSwiperInnerVideos(swiper);
 							toggleSwiperCaptionAnimation(swiper);
@@ -530,7 +532,7 @@
 							var $swiper = $(s);
 
 							var swiperCustomIndex = $swiper.find('.swiper-pagination__fraction-index').get(0),
-									swiperCustomCount = $swiper.find('.swiper-pagination__fraction-count').get(0);
+								swiperCustomCount = $swiper.find('.swiper-pagination__fraction-count').get(0);
 
 							if (swiperCustomIndex && swiperCustomCount) {
 								swiperCustomIndex.innerHTML = formatIndex(swiper.realIndex + 1);
@@ -544,7 +546,7 @@
 							}
 						}
 					}(s)),
-					onSlideChangeStart:       (function (s) {
+					onSlideChangeStart: (function (s) {
 						return function (swiper) {
 							var swiperCustomIndex = $(s).find('.swiper-pagination__fraction-index').get(0);
 
@@ -558,7 +560,7 @@
 				$window.on("resize", (function (s) {
 					return function () {
 						var mh = getSwiperHeight(s, "min-height"),
-								h = getSwiperHeight(s, "height");
+							h = getSwiperHeight(s, "height");
 						if (h) {
 							s.css("height", mh ? mh > h ? mh : h : h);
 						}
@@ -595,11 +597,11 @@
 			} else {
 				for (var i = 0; i < plugins.materialParallax.length; i++) {
 					var parallax = $(plugins.materialParallax[i]),
-							imgPath = parallax.data("parallax-img");
+						imgPath = parallax.data("parallax-img");
 
 					parallax.css({
 						"background-image": 'url(' + imgPath + ')',
-						"background-size":  "cover"
+						"background-size": "cover"
 					});
 				}
 			}
@@ -615,14 +617,14 @@ let slideIndex = 0;
 const sliderItems = document.querySelectorAll('.slider-item');
 
 function showSlides() {
-  slideIndex++;
-  if (slideIndex >= sliderItems.length) {
-    slideIndex = 0;
-  }
-  sliderItems.forEach(item => {
-    item.classList.remove('active');
-  });
-  sliderItems[slideIndex].classList.add('active');
+	slideIndex++;
+	if (slideIndex >= sliderItems.length) {
+		slideIndex = 0;
+	}
+	sliderItems.forEach(item => {
+		item.classList.remove('active');
+	});
+	sliderItems[slideIndex].classList.add('active');
 }
 
 setInterval(showSlides, 3000);
