@@ -1,7 +1,15 @@
 @charset "UTF-8";
 
+a {
+	color: #33A0FF;
+}
+
+
 a:hover {
 	text-decoration: none;
+	color: white;
+	transition: all 0.5s ease;
+
 }
 
 a:focus,
@@ -745,7 +753,7 @@ p [style*='max-width'] {
 	justify-content: center;
 	padding: 30px 18px;
 	min-height: 100%;
-	background: #9c9c9c;
+	background: #2b2b2b;
 	color: white;
 	transition: all .2s ease;
 	z-index: 1;
@@ -781,7 +789,7 @@ p [style*='max-width'] {
 
 .box-icon-classic-title {
 	font-weight: 500;
-	color: #000000;
+	color: white;
 }
 
 .box-icon-classic-title a,
@@ -797,7 +805,7 @@ p [style*='max-width'] {
 }
 
 .box-icon-classic-text {
-	color: black;
+	color: white;
 }
 
 @media (min-width: 992px) {

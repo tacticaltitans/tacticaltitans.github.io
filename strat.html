@@ -153,6 +153,7 @@
             <option value="normal">Normal</option>
           </select>
         </div>
+        <br>
         <div class="filter">
           <label for="num-players">Number of Players:</label>
           <select id="num-players">
@@ -163,48 +164,65 @@
             <option value="quad">Quad</option>
           </select>
         </div>
+        <br>
+      
         <div class="filter">
           <label for="strat-type">Strategy Type:</label>
           <select id="strat-type">
             <option value="all">All</option>
-            <option value="friendly">Beginner-Friendly</option>
-            <option value="no-friendly">No Beginner-Friendly</option>
+            <option value="friendly">Friendly-Beginner</option>
+            <option value="no-friendly">No Friendly-Beginner</option>
+          </select>
+        </div>
+        <br>
+      
+        <div class="filter">
+          <label for="ava-type">Availability:</label>
+          <select id="ava-type">
+            <option value="all">All</option>
+            <option value="work" selected>Working</option>
+            <option value="no-work">Not working</option>
           </select>
         </div>
       </div>
+      <div id="message"></div>
+      <div id="no-results-message" class="hidden">
+        <img src="/images/sad.webp" style="width: 20%;height: 20%;">
+        <p style="color: red;font-size: 30px;">No strategies found</p>
+      </div>
 
       <div class="strategy-container" style="justify-content: center;display: flex;">
-        <div class="strategy easycore hardcore trio friendly center"
+        <div class="strategy easycore hardcore trio friendly work center"
           onclick="window.location.href = this.getAttribute('href'); return false;" href="/strat/easycore.html"
           style="background-image: url(/strat/img/easycore.webp);">
           <h3>EasyCore</h3>
           <p>Trio NST Hardcore Speedrun</p>
         </div>
-        <div class="strategy firestorm hardcore solo no-friendly center"
+        <div class="strategy firestorm hardcore solo no-friendly no-work center"
           onclick="window.location.href = this.getAttribute('href'); return false;" href="/strat/firestorm.html"
           style="background-image: url(/strat/img/firestorm.webp);">
           <h3>Firestorm</h3>
           <p>Solo hardcore grind</p>
         </div>
-        <div class="strategy double-hardcore-heroes hardcore duo no-friendly center"
+        <div class="strategy double-hardcore-heroes hardcore duo no-friendly no-work center"
           onclick="window.location.href = this.getAttribute('href'); return false;" href="/errors/broken back.html"
           style="background-image: url(/strat/img/bounty.webp);">
           <h3>Double Hardcore Heroes</h3>
           <p>Duo hardcore</p>
         </div>
-        <div class="strategy nuclear-pain special duo no-friendly center"
+        <div class="strategy nuclear-pain special duo no-friendly work center"
           onclick="window.location.href = this.getAttribute('href'); return false;" href="/errors/comingsoon.html"
           style="background-image: url(/strat/img/nuclear.webp);">
           <h3>Nuclear Pain 😭</h3>
           <p>Duo PW2</p>
         </div>
-        <div class="strategy pizza-party special duo friendly center"
+        <div class="strategy pizza-party special duo friendly work center"
           onclick="window.location.href = this.getAttribute('href'); return false;" href="/errors/comingsoon.html"
           style="background-image: url(/strat/img/pizza.webp);">
           <h3>Pizza Party</h3>
           <p>Duo NST Pizza Party Speedrun</p>
         </div>
-        <div class="strategy bounty-hunter special quad friendly center"
+        <div class="strategy bounty-hunter special quad friendly work center"
           onclick="window.location.href = this.getAttribute('href'); return false;" href="/errors/comingsoon.html"
           style="background-image: url(/strat/img/badlands.webp);">
           <h3>The Bounty Hunter</h3>
@@ -224,12 +242,14 @@
 
         /* Estilos para los elementos select */
         select {
-          border: none;
+          border: solid 1px white;
+          border-radius: 25px;
           background-color: #222222;
           color: #ffffff;
           padding: 8px;
           font-size: 16px;
           cursor: pointer;
+
         }
 
         /* Estilos para los elementos option */
@@ -371,38 +391,101 @@
         
       </style>
       <script>
-        const mapTypeFilter = document.querySelector("#map-type");
-        const numPlayersFilter = document.querySelector("#num-players");
-        const stratTypeFilter = document.querySelector("#strat-type");
-        const strategies = document.querySelectorAll(".strategy");
+const mapTypeFilter = document.querySelector('#map-type');
+const numPlayersFilter = document.querySelector('#num-players');
+const stratTypeFilter = document.querySelector('#strat-type');
+const avaTypeFilter = document.querySelector('#ava-type');
+const strategies = document.querySelectorAll('.strategy');
+const message = document.querySelector('#message');
+const messageDiv = document.getElementById('message');
 
-        function filterStrategies() {
-          const selectedMapType = mapTypeFilter.value;
-          const selectedNumPlayers = numPlayersFilter.value;
-          const selectedStratType = stratTypeFilter.value;
+function filterStrategies() {
+  const selectedMapType = mapTypeFilter.value;
+  const selectedNumPlayers = numPlayersFilter.value;
+  const selectedStratType = stratTypeFilter.value;
+  const selectedAvaType = avaTypeFilter.value;
+  let filteredStrategies = 0;
+  
+  strategies.forEach(strategy => {
+    const mapType = strategy.classList.contains(selectedMapType) || selectedMapType === 'all';
+    const numPlayers = strategy.classList.contains(selectedNumPlayers) || selectedNumPlayers === 'all';
+    const stratType = strategy.classList.contains(selectedStratType) || selectedStratType === 'all';
+    const ava = strategy.classList.contains(selectedAvaType) || selectedAvaType === 'all';
+    
+    if (mapType && numPlayers && stratType && ava) {
+      strategy.classList.remove('hidden');
+      filteredStrategies++;
+    } else {
+      strategy.classList.add('hidden');
+    }
+  });
 
-          strategies.forEach((strategy) => {
-            const mapType =
-              strategy.classList.contains(selectedMapType) ||
-              selectedMapType === "all";
-            const numPlayers =
-              strategy.classList.contains(selectedNumPlayers) ||
-              selectedNumPlayers === "all";
-            const stratType =
-              strategy.classList.contains(selectedStratType) ||
-              selectedStratType === "all";
+  if (filteredStrategies === 0) {
+    message.innerText = 'No strategies found';
+  } else {
+    message.innerText = '';
+  }
+}
 
-            if (mapType && numPlayers && stratType) {
-              strategy.classList.remove("hidden");
-            } else {
-              strategy.classList.add("hidden");
-            }
-          });
-        }
+mapTypeFilter.addEventListener('change', filterStrategies);
+numPlayersFilter.addEventListener('change', filterStrategies);
+stratTypeFilter.addEventListener('change', filterStrategies);
+avaTypeFilter.addEventListener('change', filterStrategies);
 
-        mapTypeFilter.addEventListener("change", filterStrategies);
-        numPlayersFilter.addEventListener("change", filterStrategies);
-        stratTypeFilter.addEventListener("change", filterStrategies);
+window.onload = function() {
+  // Obtenemos el selector de disponibilidad
+  var avaSelector = document.getElementById('ava-type');
+
+  // Agregamos un listener al evento "change"
+  avaSelector.addEventListener('change', function() {
+    // Llamamos a la función que filtra las estrategias según la disponibilidad seleccionada
+    filterStrategies();
+  });
+
+  // Llamamos a la función que filtra las estrategias según la disponibilidad seleccionada
+  filterStrategies();
+};
+
+// Agregamos una variable para almacenar el mensaje de "No se encontraron resultados"
+const noResultsMessage = document.getElementById('no-results-message');
+
+// Función que filtra las estrategias según la disponibilidad seleccionada
+function filterStrategies() {
+  const selectedMapType = mapTypeFilter.value;
+  const selectedNumPlayers = numPlayersFilter.value;
+  const selectedStratType = stratTypeFilter.value;
+  const selectedAvaType = avaTypeFilter.value;
+  
+  let hasResults = false; // variable para verificar si se encontraron resultados
+  
+  strategies.forEach(strategy => {
+    const mapType = strategy.classList.contains(selectedMapType) || selectedMapType === 'all';
+    const numPlayers = strategy.classList.contains(selectedNumPlayers) || selectedNumPlayers === 'all';
+    const stratType = strategy.classList.contains(selectedStratType) || selectedStratType === 'all';
+    const ava = strategy.classList.contains(selectedAvaType) || selectedAvaType === 'all';
+    
+    if (mapType && numPlayers && stratType && ava) {
+      strategy.classList.remove('hidden');
+      hasResults = true; // si se encontró al menos un resultado, actualizamos la variable
+    } else {
+      strategy.classList.add('hidden');
+    }
+  });
+  
+  if (!hasResults) {
+    noResultsMessage.classList.remove('hidden'); // mostramos el mensaje de "No se encontraron resultados"
+  } else {
+    noResultsMessage.classList.add('hidden'); // ocultamos el mensaje de "No se encontraron resultados"
+  }
+}
+
+// Agregamos los listeners para los selectores y llamamos a la función para mostrar los resultados iniciales
+mapTypeFilter.addEventListener('change', filterStrategies);
+numPlayersFilter.addEventListener('change', filterStrategies);
+stratTypeFilter.addEventListener('change', filterStrategies);
+avaTypeFilter.addEventListener('change', filterStrategies);
+filterStrategies(); // llamamos a la función para mostrar los resultados iniciales
+
       </script>
       <hr class="animated-hr2">
       <!--PATAS-->
