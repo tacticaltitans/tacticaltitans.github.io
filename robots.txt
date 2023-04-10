@@ -1,6 +1,6 @@
 User-agent: *
-Disallow: errors/broken back.html
-Disallow: errors/broken dead.html
-Disallow: errors/comingsoon.html
-Disallow: errors/maintenance.html
-Disallow: secret.html
+Disallow: /errors/broken back.html
+Disallow: /errors/broken dead.html
+Disallow: /errors/comingsoon.html
+Disallow: /errors/maintenance.html
+Disallow: /secret.html

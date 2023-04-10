@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 a {
-	color: #33A0FF;
+	color: #00ECFF;
 }
 
 
@@ -9362,7 +9362,7 @@ textarea.textarea-lg {
 }
 
 .footer-corporate-inset .post-minimal-2 a {
-	color: #33A0FF;
+	color: #00ECFF;
 }
 
 .footer-corporate-inset .post-minimal-2 a:hover {
@@ -13207,7 +13207,7 @@ html [class*='section-'].section-top-0 {
 .context-dark .post-minimal-2-time,
 .bg-gray-dark .post-minimal-2-time,
 .bg-primary .post-minimal-2-time {
-	color: rgba(255, 255, 255, 0.25);
+	color: #FFFFFF;
 }
 
 .context-dark .text-strike-1,
@@ -24495,7 +24495,7 @@ screen and (max-height: 300px) {
 .nombre p {
 	margin: 0;
 	font-size: 16px;
-	color: #666;
+	color: #B8B8B8;
 }
 
 .nohori {
