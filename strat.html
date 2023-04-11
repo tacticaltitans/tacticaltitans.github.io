@@ -18,38 +18,15 @@
   </script>
   <!--OMG SEX :D-->
   <title>Strategies | Tactical Titans</title>
-  <meta name="keywords"
-    content="Strategy,Roblox,TDS,Fast,BestGamezYT,Tower Defense Simulador,strategies,tds,Tower,tower defense simulator strategy,strat,tactical titan,tactical titans">
+  <title>TDS Strategies - Strategies | Tactical Titans</title>
+  <meta name="description" content="Discover the best Roblox TDS strategies and defend your tower against waves of enemies. Master the game with our Roblox TDS strategy!!">
+  <meta name="keywords" content="tds strategy, tds strategies, tactical titans, tds, Tower Defense Simulador">
   <meta name="robots" content="index, follow">
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta name="language" content="English">
-  <meta name="revisit-after" content="2 days">
-  <meta name="author" content="Stageddat">
-  <!-- Primary Meta Tags -->
-  <title>Tactical Titans | Effective Practical Fast</title>
-  <meta name="title" content="Tactical Titans — Effective Practical Fast">
-  <meta name="description"
-    content="Get the best strategies of all time for TDS (Tower Defense Simulator) on Roblox. Learn how to get through the hardest parts easily and quickly.">
+  <meta name="copyright" content="Tactical Titans">
+  <meta name="language" content="EN">
+  <meta property="og:image" content="https://raw.githubusercontent.com/tacticaltitans/tacticaltitans.github.io/main/images/logo.webp"/>
 
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://stageddat.github.io/">
-  <meta property="og:title" content="Tactical Titans | Effective Practical Fast">
-  <meta property="og:description"
-    content="Get the best strategies of all time for TDS (Tower Defense Simulator) on Roblox. Learn how to get through the hardest parts easily and quickly.">
-  <meta property="og:image"
-    content="https://raw.githubusercontent.com/tacticaltitans/tacticaltitans.github.io/main/images/logo.webp">
 
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://stageddat.github.io/">
-  <meta property="twitter:title" content="Tactical Titans | Effective Practical Fast">
-  <meta property="twitter:description"
-    content="Get the best strategies of all time for TDS (Tower Defense Simulator) on Roblox. Learn how to get through the hardest parts easily and quickly.">
-  <meta property="twitter:image"
-    content="https://raw.githubusercontent.com/tacticaltitans/tacticaltitans.github.io/main/images/logo.webp">
-
-  <meta name="format-detection" content="telephone=no">
   <meta name="viewport"
     content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -61,6 +38,7 @@
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="css/fonts.css">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/filter.css">
 </head>
 
 <body>
@@ -146,16 +124,20 @@
       <div class="filters">
         <div class="filter">
           <label for="map-type">Map Type:</label>
+          <br>
+
           <select id="map-type">
             <option value="all">All</option>
             <option value="hardcore">Hardcore</option>
             <option value="special">Special</option>
             <option value="normal">Normal</option>
+            <option value="event">Event</option>
           </select>
         </div>
         <br>
         <div class="filter">
           <label for="num-players">Number of Players:</label>
+          <br>
           <select id="num-players">
             <option value="all">All</option>
             <option value="solo">Solo</option>
@@ -168,6 +150,8 @@
       
         <div class="filter">
           <label for="strat-type">Strategy Type:</label>
+          <br>
+
           <select id="strat-type">
             <option value="all">All</option>
             <option value="friendly">Friendly-Beginner</option>
@@ -178,315 +162,58 @@
       
         <div class="filter">
           <label for="ava-type">Availability:</label>
+          <br>
+
           <select id="ava-type">
             <option value="all">All</option>
             <option value="work" selected>Working</option>
             <option value="no-work">Not working</option>
+            <option value="dev">Developing</option>
           </select>
         </div>
       </div>
       <div id="message"></div>
       <div id="no-results-message" class="hidden">
         <img src="/images/sad.webp" style="width: 20%;height: 20%;">
-        <p style="color: red;font-size: 30px;">No strategies found</p>
+        <p style="color: red;font-size: 30px;">No strategies found :c</p>
       </div>
 
       <div class="strategy-container" style="justify-content: center;display: flex;">
-        <div class="strategy easycore hardcore trio friendly work center"
-          onclick="window.location.href = this.getAttribute('href'); return false;" href="/strat/easycore.html"
-          style="background-image: url(/strat/img/easycore.webp);">
+        <a class="strategy easycore hardcore trio friendly work center"
+          style="background-image: url(/strat/img/easycore.webp);"
+          href="/strat/easycore.html">
           <h3>EasyCore</h3>
           <p>Trio NST Hardcore Speedrun</p>
-        </div>
-        <div class="strategy firestorm hardcore solo no-friendly no-work center"
-          onclick="window.location.href = this.getAttribute('href'); return false;" href="/strat/firestorm.html"
-          style="background-image: url(/strat/img/firestorm.webp);">
+        </a>
+        <a class="strategy firestorm hardcore solo no-friendly no-work center"
+          style="background-image: url(/strat/img/firestorm.webp);"
+          href="/strat/firestorm.html">
           <h3>Firestorm</h3>
           <p>Solo hardcore grind</p>
-        </div>
-        <div class="strategy double-hardcore-heroes hardcore duo no-friendly no-work center"
-          onclick="window.location.href = this.getAttribute('href'); return false;" href="/errors/broken back.html"
-          style="background-image: url(/strat/img/bounty.webp);">
+        </a>
+        <a class="strategy double-hardcore-heroes hardcore duo no-friendly dev center"
+          style="background-image: url(/strat/img/bounty.webp);"
+          href="/">
           <h3>Double Hardcore Heroes</h3>
           <p>Duo hardcore</p>
-        </div>
-        <div class="strategy nuclear-pain special duo no-friendly work center"
+        </a>
+        <a class="strategy nuclear-pain special duo no-friendly dev center"
           onclick="window.location.href = this.getAttribute('href'); return false;" href="/errors/comingsoon.html"
           style="background-image: url(/strat/img/nuclear.webp);">
           <h3>Nuclear Pain 😭</h3>
           <p>Duo PW2</p>
-        </div>
-        <div class="strategy pizza-party special duo friendly work center"
-          onclick="window.location.href = this.getAttribute('href'); return false;" href="/errors/comingsoon.html"
+        </a>
+        <a class="strategy pizza-party special duo friendly dev center"
           style="background-image: url(/strat/img/pizza.webp);">
           <h3>Pizza Party</h3>
           <p>Duo NST Pizza Party Speedrun</p>
-        </div>
-        <div class="strategy bounty-hunter special quad friendly work center"
-          onclick="window.location.href = this.getAttribute('href'); return false;" href="/errors/comingsoon.html"
+        </a>
+        <a class="strategy bounty-hunter special quad friendly dev center"
           style="background-image: url(/strat/img/badlands.webp);">
           <h3>The Bounty Hunter</h3>
           <p>Quad NST Badlands Quickdraw</p>
-        </div>
+        </a>
       </div>
-
-      <style>
-        body {
-          background-color: #222222;
-        }
-
-        .center {
-          background-position: center center;
-          background-size: cover;
-        }
-
-        /* Estilos para los elementos select */
-        select {
-          border: solid 1px white;
-          border-radius: 25px;
-          background-color: #222222;
-          color: #ffffff;
-          padding: 8px;
-          font-size: 16px;
-          cursor: pointer;
-
-        }
-
-        /* Estilos para los elementos option */
-        option {
-          background-color: #222222;
-          color: #ffffff;
-        }
-
-        /* Estilos para el contenedor de los elementos select */
-        .filters {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          margin-bottom: 20px;
-          color: white;
-          flex-wrap: wrap;
-          animation: fade-in 1s ease-out;
-        }
-
-        /* Estilos para los elementos label */
-        label {
-          margin-right: 10px;
-          font-size: 16px;
-        }
-
-        /* Estilos para resaltar el valor seleccionado */
-        select:focus {
-          outline: none;
-          box-shadow: 0 0 5px #33A0FF;
-        }
-
-        @keyframes fade-in {
-          0% {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-
-          100% {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        .strategy-container {
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: center;
-        }
-
-        .strategy {
-          width: 200px;
-          height: 200px;
-          background-color: #ccc;
-          margin-right: 10px;
-          margin-left: 10px;
-          margin-bottom: 20px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          text-align: center;
-          font-size: 16px;
-          flex: 0 0 calc(33.33% - 20px);
-          box-sizing: border-box;
-          border: 2px solid #33a0ff;
-          border-radius: 10px;
-          position: relative;
-          transition: all 0.3s ease;
-        }
-
-        .strategy:hover {
-          transform: translateY(-10px);
-          box-shadow: 0 5px 10px white;
-        }
-
-        .strategy h3 {
-          color: #33A0FF;
-          text-shadow: 2px 2px #000;
-
-        }
-
-        .strategy p {
-          position: absolute;
-          bottom: 0px;
-          /* Colocamos el elemento "p" en el borde inferior */
-          left: 0px;
-          /* Colocamos el elemento "p" en el borde derecho */
-          color: #33a0ff;
-          font-size: 20px;
-          font-weight: bold;
-          background-color: #f2f2f2;
-          padding: 10px;
-          border-radius: 0 10px 0 5px;
-        }
-
-        .strategy:hover p {
-          background-color: #33a0ff;
-          color: #fff;
-        }
-
-        .hidden {
-          display: none;
-        }
-
-        @media (max-width: 768px) {
-          .strategy {
-            flex-basis: calc(50% - 20px);
-          }
-        }
-        .strategy p {
-          position: absolute;
-          bottom: 0px;
-          /* Colocamos el elemento "p" en el borde inferior */
-          left: 0px;
-          /* Colocamos el elemento "p" en el borde derecho */
-          font-size: 15px;
-          font-weight: bold;
-          background-color: #f2f2f2;
-          padding: 2px;
-          border-radius: 0 10px 0 5px;
-        } 
-        
-        @media (max-width: 550px) {
-          .strategy {
-            flex-basis: calc(100% - 20px);
-          }
-        }
-        .strategy p {
-          position: absolute;
-          bottom: 0px;
-          /* Colocamos el elemento "p" en el borde inferior */
-          left: 0px;
-          /* Colocamos el elemento "p" en el borde derecho */
-          font-size: 15px;
-          font-weight: bold;
-          background-color: #f2f2f2;
-          padding: 2px;
-          border-radius: 0 10px 0 5px;
-        } 
-        
-      </style>
-      <script>
-const mapTypeFilter = document.querySelector('#map-type');
-const numPlayersFilter = document.querySelector('#num-players');
-const stratTypeFilter = document.querySelector('#strat-type');
-const avaTypeFilter = document.querySelector('#ava-type');
-const strategies = document.querySelectorAll('.strategy');
-const message = document.querySelector('#message');
-const messageDiv = document.getElementById('message');
-
-function filterStrategies() {
-  const selectedMapType = mapTypeFilter.value;
-  const selectedNumPlayers = numPlayersFilter.value;
-  const selectedStratType = stratTypeFilter.value;
-  const selectedAvaType = avaTypeFilter.value;
-  let filteredStrategies = 0;
-  
-  strategies.forEach(strategy => {
-    const mapType = strategy.classList.contains(selectedMapType) || selectedMapType === 'all';
-    const numPlayers = strategy.classList.contains(selectedNumPlayers) || selectedNumPlayers === 'all';
-    const stratType = strategy.classList.contains(selectedStratType) || selectedStratType === 'all';
-    const ava = strategy.classList.contains(selectedAvaType) || selectedAvaType === 'all';
-    
-    if (mapType && numPlayers && stratType && ava) {
-      strategy.classList.remove('hidden');
-      filteredStrategies++;
-    } else {
-      strategy.classList.add('hidden');
-    }
-  });
-
-  if (filteredStrategies === 0) {
-    message.innerText = 'No strategies found';
-  } else {
-    message.innerText = '';
-  }
-}
-
-mapTypeFilter.addEventListener('change', filterStrategies);
-numPlayersFilter.addEventListener('change', filterStrategies);
-stratTypeFilter.addEventListener('change', filterStrategies);
-avaTypeFilter.addEventListener('change', filterStrategies);
-
-window.onload = function() {
-  // Obtenemos el selector de disponibilidad
-  var avaSelector = document.getElementById('ava-type');
-
-  // Agregamos un listener al evento "change"
-  avaSelector.addEventListener('change', function() {
-    // Llamamos a la función que filtra las estrategias según la disponibilidad seleccionada
-    filterStrategies();
-  });
-
-  // Llamamos a la función que filtra las estrategias según la disponibilidad seleccionada
-  filterStrategies();
-};
-
-// Agregamos una variable para almacenar el mensaje de "No se encontraron resultados"
-const noResultsMessage = document.getElementById('no-results-message');
-
-// Función que filtra las estrategias según la disponibilidad seleccionada
-function filterStrategies() {
-  const selectedMapType = mapTypeFilter.value;
-  const selectedNumPlayers = numPlayersFilter.value;
-  const selectedStratType = stratTypeFilter.value;
-  const selectedAvaType = avaTypeFilter.value;
-  
-  let hasResults = false; // variable para verificar si se encontraron resultados
-  
-  strategies.forEach(strategy => {
-    const mapType = strategy.classList.contains(selectedMapType) || selectedMapType === 'all';
-    const numPlayers = strategy.classList.contains(selectedNumPlayers) || selectedNumPlayers === 'all';
-    const stratType = strategy.classList.contains(selectedStratType) || selectedStratType === 'all';
-    const ava = strategy.classList.contains(selectedAvaType) || selectedAvaType === 'all';
-    
-    if (mapType && numPlayers && stratType && ava) {
-      strategy.classList.remove('hidden');
-      hasResults = true; // si se encontró al menos un resultado, actualizamos la variable
-    } else {
-      strategy.classList.add('hidden');
-    }
-  });
-  
-  if (!hasResults) {
-    noResultsMessage.classList.remove('hidden'); // mostramos el mensaje de "No se encontraron resultados"
-  } else {
-    noResultsMessage.classList.add('hidden'); // ocultamos el mensaje de "No se encontraron resultados"
-  }
-}
-
-// Agregamos los listeners para los selectores y llamamos a la función para mostrar los resultados iniciales
-mapTypeFilter.addEventListener('change', filterStrategies);
-numPlayersFilter.addEventListener('change', filterStrategies);
-stratTypeFilter.addEventListener('change', filterStrategies);
-avaTypeFilter.addEventListener('change', filterStrategies);
-filterStrategies(); // llamamos a la función para mostrar los resultados iniciales
-
-      </script>
       <hr class="animated-hr2">
       <!--PATAS-->
       <footer class="section footer-corporate context-dark">
@@ -583,6 +310,7 @@ filterStrategies(); // llamamos a la función para mostrar los resultados inicia
   <!-- Javascript-->
   <script src="js/core.min.js"></script>
   <script src="js/script.js"></script>
+  <script src="js/filter.js"></script>
 </body>
 
 </html>
