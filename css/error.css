@@ -1,5 +1,4 @@
 body {
-background-image: url(/errors/down2.png);
   background-size: cover;
   background-color: #222222;
   color: white;
@@ -9,7 +8,6 @@ background-image: url(/errors/down2.png);
   justify-content: center;
   height: 100vh;
   user-select: none; /*NO CLICK DERECHO :P */
-  overflow: hidden;
 }
 
 button {

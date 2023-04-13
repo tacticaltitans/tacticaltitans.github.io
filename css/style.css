@@ -18946,3 +18946,9 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 		background-color: #2b2b2b;
 	}
 }
+
+.textoimagen p, .textoimagen h2 {
+	color: white;
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  }
+  
