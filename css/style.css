@@ -12888,7 +12888,7 @@ html.rd-navbar-fixed-linked .page {
 }
 
 .rd-navbar-corporate.rd-navbar-static .rd-nav-item.active .rd-nav-link {
-	color: white;
+	color: black;
 }
 
 .rd-navbar-corporate.rd-navbar-static .rd-nav-item.active .rd-nav-link::before {
@@ -12904,7 +12904,7 @@ html.rd-navbar-fixed-linked .page {
 	font-size: 16px;
 	letter-spacing: .05em;
 	font-family: "Montserrat";
-	color: #ffffff;
+	color: black;
 	z-index: 1;
 }
 
