@@ -39,185 +39,121 @@
   <link rel="stylesheet" href="css/fonts.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/filter.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
 </head>
 
 <body>
-  <div class="preloader">
-    <div id="loader-wrapper">
-      <div id="loader"></div>
-      <div class="loader-section section-left"></div>
-      <div class="loader-section section-right"></div>
+  <header class="site-header">
+    <div class="inner-width">
+      <a href="/index.html">
+        <h1 class="logo">Tacticals <span style="color:#33A0FF;">Titans</span></h1>
+      </a>
+      <i class="menu-toggle-btn fas fa-bars" style="z-index: 3;"></i>
+      <nav class="navigation-menu">
+        <a href="/index.html"><i class="fas fa-home home"></i> Home</a>
+        <a href="/strat.html">Strategies</a>
+        <a href="/index.html#about">About Us</a>
+        <a href="/contact.html">Contact Us</a>
+        <a href="/contact.html#feed">Feedback</a>
+      </nav>
     </div>
-  </div>
-  <div class="page">
-    <header class="section page-header">
-      <!-- RD Navbar-->
-      <div class="rd-navbar-wrap">
-        <nav class="rd-navbar rd-navbar-corporate" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed"
-          data-md-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static"
-          data-lg-device-layout="rd-navbar-fixed" data-xl-layout="rd-navbar-static"
-          data-xl-device-layout="rd-navbar-static" data-xxl-layout="rd-navbar-static"
-          data-xxl-device-layout="rd-navbar-static" data-lg-stick-up-offset="46px" data-xl-stick-up-offset="46px"
-          data-xxl-stick-up-offset="106px" data-lg-stick-up="true" data-xl-stick-up="true" data-xxl-stick-up="true">
-          <div class="rd-navbar-collapse-toggle rd-navbar-fixed-element-1" data-rd-navbar-toggle=".rd-navbar-collapse">
-            <span></span></div>
-          <div class="rd-navbar-aside-outer">
-            <div class="rd-navbar-aside">
-              <!-- RD Navbar Panel-->
-              <div class="rd-navbar-panel">
-                <!-- RD Navbar Toggle-->
-                <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
-                <!-- RD Navbar Brand-->
-                <div class="rd-navbar-brand">
-                  <a class="brand" href="index.html"><img src="/images/logo.webp" alt=""
-                      style="width: 55%;height: 55%;" /></a> </div>
-              </div>
-              <div class="rd-navbar-aside-right rd-navbar-collapse">
-                <ul class="rd-navbar-corporate-contacts">
-                </ul><a class="button button-md button-default-outline-2 button-ujarak" href="index.html">Home</a>
-              </div>
+  </header>
+  
+    <div class="strats context-dark" style="background-image: url(/images/strat.webp);  background-size: cover;background-position: top;">
+            <div class="textoimagen" style="text-align: center;font-weight: bold;">
+              <h1>Strategies</h1>
+              <p><a href="/index.html">HOME</a>/ Strategies</p>
             </div>
+    </div>
+      <section class="container" style="text-align: center;">
+        <div class="filters">
+          <div class="filter">
+            <label for="map-type">Map Type:</label>
+            <select id="map-type">
+              <option value="all">All</option>
+              <option value="hardcore">Hardcore</option>
+              <option value="special">Special</option>
+              <option value="normal">Normal</option>
+              <option value="event">Event</option>
+            </select>
           </div>
-          <div class="rd-navbar-main-outer">
-            <div class="rd-navbar-main">
-              <div class="rd-navbar-nav-wrap">
-                <ul class="list-inline list-inline-md rd-navbar-corporate-list-social">
-                  <li><a href="https://discord.gg/k2UWWWFxXP"><img src="images/discord.webp" alt="Discord Server"
-                        width="20px" height="20px" title="Join Our Server!!"></a></li>
-                  <li><a href="https://www.youtube.com/@BestGamez"><img src="images/youtube.webp" alt="Youtube Channel"
-                        width="20px" height="20px" title="Subscribe!!"></a></li>
-                </ul>
-                <!-- RD Navbar Nav-->
-                <ul class="rd-navbar-nav">
-                  <li class="rd-nav-item"><a class="rd-nav-link" href="index.html">Home</a>
-                  </li>
-                  <li class="rd-nav-item active"><a class="rd-nav-link" href="strat.html">Strategies</a>
-                  </li>
-                  <li class="rd-nav-item"><a class="rd-nav-link" href="contact.html">Contact Us</a>
-                  </li>
-                  <li class="rd-nav-item"><a class="rd-nav-link" href="index.html#about">About Us</a>
-                  </li>
-                  <li class="rd-nav-item"><a class="rd-nav-link" href="contact.html#Feedback">Feedback</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
+          <div class="filter">
+            <label for="num-players">Number of Players:</label>
+            <select id="num-players">
+              <option value="all">All</option>
+              <option value="solo">Solo</option>
+              <option value="duo">Duo</option>
+              <option value="trio">Trio</option>
+              <option value="quad">Quad</option>
+            </select>
           </div>
-        </nav>
-      </div>
-    </header>
-    <!-- Breadcrumbs -->
-    <section>
-      <div class="breadcrumbs-custom context-dark bg-overlay-60">
-        <div class="container">
-          <h2 class="breadcrumbs-custom-title">Strategies</h2>
-          <ul class="breadcrumbs-custom-path">
-            <li><a href="index.html">Home</a></li>
-            <li class="active">Strategies</li>
-          </ul>
+        
+          <div class="filter">
+            <label for="strat-type">Strategy Type:</label>
+  
+            <select id="strat-type">
+              <option value="all">All</option>
+              <option value="friendly">Friendly-Beginner</option>
+              <option value="no-friendly">No Friendly-Beginner</option>
+            </select>
+          </div>
+        
+          <div class="filter">
+            <label for="ava-type">Availability:</label>
+            <select id="ava-type">
+              <option value="all">All</option>
+              <option value="work" selected>Working</option>
+              <option value="no-work">Not working</option>
+              <option value="dev">Developing</option>
+            </select>
+          </div>
         </div>
-        <div class="box-position" style="background-image: url(images/strat.webp);"></div>
-      </div>
-    </section>
-    <hr class="animated-hr">
-    <section>
-      <div class="filters">
-        <div class="filter">
-          <label for="map-type">Map Type:</label>
-          <br>
+        <div id="no-results-message" class="hidden">
+          <img src="/images/sad.webp" style="width: 20%;height: 20%;text-align: center;">
+          <p style="color: red;font-size: 30px;">No strategies found :c</p>
+        </div>
 
-          <select id="map-type">
-            <option value="all">All</option>
-            <option value="hardcore">Hardcore</option>
-            <option value="special">Special</option>
-            <option value="normal">Normal</option>
-            <option value="event">Event</option>
-          </select>
+        <div class="strategy-container" style="justify-content: center;display: flex;">
+          <a class="strategy easycore hardcore trio friendly work center"
+            style="background-image: url(/strat/img/easycore.webp);"
+            href="/strat/easycore.html">
+            <h3>EasyCore</h3>
+            <p>Trio NST Hardcore Speedrun</p>
+          </a>
+          <a class="strategy firestorm hardcore solo no-friendly no-work center"
+            style="background-image: url(/strat/img/firestorm.webp);"
+            href="/strat/firestorm.html">
+            <h3>Firestorm</h3>
+            <p>Solo hardcore grind</p>
+          </a>
+          <a class="strategy double-hardcore-heroes hardcore duo no-friendly dev center"
+            style="background-image: url(/strat/img/bounty.webp);"
+            href="/errors/broken back.html">
+            <h3>Double Hardcore Heroes</h3>
+            <p>Duo hardcore</p>
+          </a>
+          <a class="strategy nuclear-pain special duo no-friendly dev center"
+            onclick="window.location.href = this.getAttribute('href'); return false;" href="/errors/comingsoon.html"
+            style="background-image: url(/strat/img/nuclear.webp);"
+            href="/errors/comingsoon.html">
+            <h3>Nuclear Pain 😭</h3>
+            <p>Duo PW2</p>
+          </a>
+          <a class="strategy pizza-party special duo friendly dev center"
+            style="background-image: url(/strat/img/pizza.webp);"
+            href="/errors/comingsoon.html">
+            <h3>Pizza Party</h3>
+            <p>Duo NST Pizza Party Speedrun</p>
+          </a>
+          <a class="strategy bounty-hunter special quad friendly dev center"
+            style="background-image: url(/strat/img/badlands.webp);"
+            href="/errors/comingsoon.html">
+            <h3>The Bounty Hunter</h3>
+            <p>Quad NST Badlands Quickdraw</p>
+          </a>
         </div>
-        <br>
-        <div class="filter">
-          <label for="num-players">Number of Players:</label>
-          <br>
-          <select id="num-players">
-            <option value="all">All</option>
-            <option value="solo">Solo</option>
-            <option value="duo">Duo</option>
-            <option value="trio">Trio</option>
-            <option value="quad">Quad</option>
-          </select>
-        </div>
-        <br>
-      
-        <div class="filter">
-          <label for="strat-type">Strategy Type:</label>
-          <br>
-
-          <select id="strat-type">
-            <option value="all">All</option>
-            <option value="friendly">Friendly-Beginner</option>
-            <option value="no-friendly">No Friendly-Beginner</option>
-          </select>
-        </div>
-        <br>
-      
-        <div class="filter">
-          <label for="ava-type">Availability:</label>
-          <br>
-
-          <select id="ava-type">
-            <option value="all">All</option>
-            <option value="work" selected>Working</option>
-            <option value="no-work">Not working</option>
-            <option value="dev">Developing</option>
-          </select>
-        </div>
-      </div>
-      <div id="message"></div>
-      <div id="no-results-message" class="hidden">
-        <img src="/images/sad.webp" style="width: 20%;height: 20%;">
-        <p style="color: red;font-size: 30px;">No strategies found :c</p>
-      </div>
-
-      <div class="strategy-container" style="justify-content: center;display: flex;">
-        <a class="strategy easycore hardcore trio friendly work center"
-          style="background-image: url(/strat/img/easycore.webp);"
-          href="/strat/easycore.html">
-          <h3>EasyCore</h3>
-          <p>Trio NST Hardcore Speedrun</p>
-        </a>
-        <a class="strategy firestorm hardcore solo no-friendly no-work center"
-          style="background-image: url(/strat/img/firestorm.webp);"
-          href="/strat/firestorm.html">
-          <h3>Firestorm</h3>
-          <p>Solo hardcore grind</p>
-        </a>
-        <a class="strategy double-hardcore-heroes hardcore duo no-friendly dev center"
-          style="background-image: url(/strat/img/bounty.webp);"
-          href="/errors/broken back.html">
-          <h3>Double Hardcore Heroes</h3>
-          <p>Duo hardcore</p>
-        </a>
-        <a class="strategy nuclear-pain special duo no-friendly dev center"
-          onclick="window.location.href = this.getAttribute('href'); return false;" href="/errors/comingsoon.html"
-          style="background-image: url(/strat/img/nuclear.webp);"
-          href="/errors/comingsoon.html">
-          <h3>Nuclear Pain 😭</h3>
-          <p>Duo PW2</p>
-        </a>
-        <a class="strategy pizza-party special duo friendly dev center"
-          style="background-image: url(/strat/img/pizza.webp);"
-          href="/errors/comingsoon.html">
-          <h3>Pizza Party</h3>
-          <p>Duo NST Pizza Party Speedrun</p>
-        </a>
-        <a class="strategy bounty-hunter special quad friendly dev center"
-          style="background-image: url(/strat/img/badlands.webp);"
-          href="/errors/comingsoon.html">
-          <h3>The Bounty Hunter</h3>
-          <p>Quad NST Badlands Quickdraw</p>
-        </a>
-      </div>
-      <hr class="animated-hr2">
+      </section>
       <!--PATAS-->
       <footer class="section footer-corporate context-dark">
         <div class="footer-corporate-inset">

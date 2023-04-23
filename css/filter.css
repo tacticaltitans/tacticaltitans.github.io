@@ -1,153 +1,154 @@
-  .center {
-    background-position: center center;
-    background-size: cover;
-  }
+.center {
+  background-position: center center;
+  background-size: cover;
+}
 
-  /* Estilos para los elementos select */
-  select {
-    border: solid 1px white;
-    border-radius: 25px;
-    background-color: #222222;
-    color: #ffffff;
-    padding: 8px;
-    font-size: 16px;
-    cursor: pointer;
+/* Estilos para los elementos select */
+select {
+  border: solid 1px white;
+  border-radius: 10px;
+  background-color: #222222;
+  color: #ffffff;
+  padding: 8px;
+  font-size: 16px;
+  cursor: pointer;
 
-  }
+}
 
-  /* Estilos para los elementos option */
-  option {
-    background-color: #222222;
-    color: #ffffff;
-  }
+/* Estilos para los elementos option */
+option {
+  background-color: #222222;
+  color: #ffffff;
+}
 
-  /* Estilos para el contenedor de los elementos select */
-  .filters {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-    color: white;
-    flex-wrap: wrap;
-    animation: fade-in 1s ease-out;
-  }
+/* Estilos para el contenedor de los elementos select */
+.filters {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  color: white;
+  flex-wrap: wrap;
+}
 
-  /* Estilos para los elementos label */
-  label {
-    margin-right: 10px;
-    font-size: 16px;
-  }
+/* Estilos para los elementos label */
+label {
+  margin-right: 10px;
+  font-size: 16px;
+}
 
-  /* Estilos para resaltar el valor seleccionado */
-  select:focus {
-    outline: none;
-    box-shadow: 0 0 5px #33A0FF;
-  }
+/* Estilos para resaltar el valor seleccionado */
+select:focus {
+  outline: none;
+  box-shadow: 0 0 5px #33A0FF;
+}
+.strategy-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 
-  @keyframes fade-in {
-    0% {
-      opacity: 0;
-      transform: translateY(20px);
-    }
+.strategy {
+  width: 200px;
+  height: 200px;
+  background-color: #ccc;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 16px;
+  flex: 0 0 calc(33.33% - 20px);
+  box-sizing: border-box;
+  border: 2px solid #33a0ff;
+  border-radius: 10px;
+  position: relative;
+  transition: all 0.3s ease;
+}
 
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+.strategy:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 5px 10px white;
+}
 
-  .strategy-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
+.strategy h3 {
+  color: #33A0FF;
+  text-shadow: 2px 2px #000;
 
+}
+
+.strategy p {
+  position: absolute;
+  bottom: 0px;
+  /* Colocamos el elemento "p" en el borde inferior */
+  left: 0px;
+  /* Colocamos el elemento "p" en el borde derecho */
+  color: #33a0ff;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: #f2f2f2;
+  padding: 10px;
+  border-radius: 0 10px 0 5px;
+}
+
+.strategy:hover p {
+  background-color: #33a0ff;
+  color: #fff;
+}
+
+.hidden {
+  display: none;
+  flex-basis: 0;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+
+
+@media (max-width: 768px) {
   .strategy {
-    width: 200px;
-    height: 200px;
-    background-color: #ccc;
-    margin-right: 10px;
-    margin-left: 10px;
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-size: 16px;
-    flex: 0 0 calc(33.33% - 20px);
-    box-sizing: border-box;
-    border: 2px solid #33a0ff;
-    border-radius: 10px;
-    position: relative;
-    transition: all 0.3s ease;
+    flex-basis: calc(50% - 20px);
   }
+}
+.strategy p {
+  position: absolute;
+  bottom: 0px;
+  /* Colocamos el elemento "p" en el borde inferior */
+  left: 0px;
+  /* Colocamos el elemento "p" en el borde derecho */
+  font-size: 15px;
+  font-weight: bold;
+  background-color: #f2f2f2;
+  padding: 2px;
+  border-radius: 0 10px 0 5px;
+} 
 
-  .strategy:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 5px 10px white;
+@media (max-width: 550px) {
+  .strategy {
+    flex-basis: calc(100% - 20px);
   }
+}
+.strategy p {
+  position: absolute;
+  bottom: 0px;
+  /* Colocamos el elemento "p" en el borde inferior */
+  left: 0px;
+  /* Colocamos el elemento "p" en el borde derecho */
+  font-size: 15px;
+  font-weight: bold;
+  background-color: #f2f2f2;
+  padding: 2px;
+  border-radius: 0 10px 0 5px;
+} 
 
-  .strategy h3 {
-    color: #33A0FF;
-    text-shadow: 2px 2px #000;
-
-  }
-
-  .strategy p {
-    position: absolute;
-    bottom: 0px;
-    /* Colocamos el elemento "p" en el borde inferior */
-    left: 0px;
-    /* Colocamos el elemento "p" en el borde derecho */
-    color: #33a0ff;
-    font-size: 20px;
-    font-weight: bold;
-    background-color: #f2f2f2;
-    padding: 10px;
-    border-radius: 0 10px 0 5px;
-  }
-
-  .strategy:hover p {
-    background-color: #33a0ff;
-    color: #fff;
-  }
-
-  .hidden {
-    display: none;
-  }
-
-  @media (max-width: 768px) {
-    .strategy {
-      flex-basis: calc(50% - 20px);
-    }
-  }
-  .strategy p {
-    position: absolute;
-    bottom: 0px;
-    /* Colocamos el elemento "p" en el borde inferior */
-    left: 0px;
-    /* Colocamos el elemento "p" en el borde derecho */
-    font-size: 15px;
-    font-weight: bold;
-    background-color: #f2f2f2;
-    padding: 2px;
-    border-radius: 0 10px 0 5px;
-  } 
-  
-  @media (max-width: 550px) {
-    .strategy {
-      flex-basis: calc(100% - 20px);
-    }
-  }
-  .strategy p {
-    position: absolute;
-    bottom: 0px;
-    /* Colocamos el elemento "p" en el borde inferior */
-    left: 0px;
-    /* Colocamos el elemento "p" en el borde derecho */
-    font-size: 15px;
-    font-weight: bold;
-    background-color: #f2f2f2;
-    padding: 2px;
-    border-radius: 0 10px 0 5px;
-  } 
+.no-results-message{
+  display: flex; /* Esto hace que el contenedor sea un flexbox */
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
