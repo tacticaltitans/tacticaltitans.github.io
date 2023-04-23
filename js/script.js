@@ -49,39 +49,6 @@
 		return elem.offset().top + elem.outerHeight() >= $window.scrollTop() && elem.offset().top <= $window.scrollTop() + $window.height();
 	}
 
-	// Initialize scripts that require a loaded page
-	$window.on('load', function () {
-		// Progress bar
-		if (plugins.progressLinear.length) {
-			for (var i = 0; i < plugins.progressLinear.length; i++) {
-				var
-					bar = $(plugins.progressLinear[i]),
-					initProgress = function () {
-						var
-							bar = $(this),
-							end = parseInt($(this).find('.progress-value').text(), 10);
-
-						// console.log( !bar.hasClass("animated-first"), isScrolledIntoView(bar), bar[0].offsetParent );
-						if (!bar.hasClass("animated-first") && isScrolledIntoView(bar)) {
-							bar.find('.progress-bar-linear').css({
-								width: end + '%'
-							});
-							bar.find('.progress-value').countTo({
-								refreshInterval: 40,
-								from: 0,
-								to: end,
-								speed: 1000
-							});
-							bar.addClass('animated-first');
-						}
-					};
-
-				$.proxy(initProgress, bar)();
-				$window.on("scroll", $.proxy(initProgress, bar));
-			}
-		}
-	});
-
 	// Initialize scripts that require a finished document
 	$(function () {
 		isNoviBuilder = window.xMode;
@@ -363,9 +330,12 @@
 		if (isDesktop && !isNoviBuilder) {
 			$().UItoTop({
 				easingType: 'easeOutQuad',
-				containerClass: 'ui-to-top fa fa-angle-up'
+				containerClass: 'ui-to-top fa fa-angle-up',
+				text: 'Go up',
+				ariaLabel: 'Button to return to the top of the page'
 			});
 		}
+		
 
 		// Owl carousel
 		if (plugins.owl.length) {
