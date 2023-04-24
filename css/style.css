@@ -14405,3 +14405,17 @@ font-size: 60px;
 	font-size: 30px;
 	 }
 }
+
+
+
+.ir-arriba {
+	display:none;
+	padding:10px;
+	background:#33A0FF;
+	font-size:15px;
+	color:#fff;
+	cursor:pointer;
+	position: fixed;
+	bottom:15px;
+	right:15px;
+}

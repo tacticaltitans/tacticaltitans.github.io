@@ -325,16 +325,6 @@
 				}, bootstrapTabsItem));
 			}
 		}
-
-		// UI To Top
-		if (isDesktop && !isNoviBuilder) {
-			$().UItoTop({
-				easingType: 'easeOutQuad',
-				containerClass: 'ui-to-top fa fa-angle-up',
-				ariaLabel: 'Button to return to the top of the page',
-				title: 'Go up'
-			});			
-		}
 		
 
 		// Owl carousel
@@ -507,3 +497,23 @@ function closeNavigationMenu() {
 	$(this).toggleClass("fa-times");
 	$(".navigation-menu").toggleClass("active");
   });
+
+
+
+  $(document).ready(function(){
+
+	$('.ir-arriba').click(function(){
+		$('body, html').animate({
+			scrollTop: '0px'
+		}, 300);
+	});
+
+	$(window).scroll(function(){
+		if( $(this).scrollTop() > 0 ){
+			$('.ir-arriba').slideDown(300);
+		} else {
+			$('.ir-arriba').slideUp(300);
+		}
+	});
+
+});
