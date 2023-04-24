@@ -14361,40 +14361,42 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 	  display: block !important;
 	}
   
-	.navigation-menu{
-	  width: 100%;
-	  max-width: 400px;
-	  background: #172b4d;
-	  top: 90px;
-	  right: 0;
-	  display: none;
-	  padding: 20px 40px;
-	  box-sizing: border-box;
-	  z-index: 10;
+	.navigation-menu {
+		position: fixed;
+		width: 100%;
+		max-width: 200px;
+		background-color: #222222;
+		top: 85px;
+		bottom: 0;
+		right: 0;
+		padding: 20px 40px;
+		box-sizing: border-box;
+		transform: translateX(100%);
+		transition: transform 0.3s ease-in-out;
+		display: flex;
+		flex-direction: column;
+		z-index: 20;
+	  }
+	
+	  .navigation-menu::before {
+		content: "";
+		border-left: 10px solid transparent;
+		border-right: 10px solid transparent;
+		border-bottom: 10px solid #222;
+		position: absolute;
+		top: -10px;
+		right: 10px;
+	  }
+	
+	  .navigation-menu a {
+		display: block;
+		margin: 10px 0;
+	  }
+	
+	  .navigation-menu.active {
+		transform: translateX(0%);
+	  }
 	}
-  
-	.navigation-menu::before{
-	  content: "";
-	  border-left: 10px solid transparent;
-	  border-right: 10px solid transparent;
-	  border-bottom: 10px solid #172b4d;
-	  position: absolute;
-	  top: -10px;
-	  right: 10px;
-	}
-  
-	.navigation-menu a{
-	  display: block;
-	  margin: 10px 0;
-	}
-  
-	.navigation-menu.active{
-	  display: block;
-	  z-index: 2;
-  
-	}
-  }
-
   @media (max-width: 452px) {
  .strats h1 {
 font-size: 60px;
