@@ -331,8 +331,9 @@
 			$().UItoTop({
 				easingType: 'easeOutQuad',
 				containerClass: 'ui-to-top fa fa-angle-up',
-				ariaLabel: 'Button to return to the top of the page'
-			});
+				ariaLabel: 'Button to return to the top of the page',
+				title: 'Go up'
+			});			
 		}
 		
 
